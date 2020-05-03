@@ -1,0 +1,27 @@
+<style>
+.target{
+  width: 3rem;
+  height: 3rem;
+  background-color: red;
+  font-size: 0.36rem;
+}
+</style>
+
+<div class="target">responsive</div>
+
+<script>
+function initResponsize(){
+  const root = document.getElementsByTagName('html')[0] // 根元素
+
+  // 根据屏幕宽度，设置根元素字体大小的函数
+  function setRootFontSize(){
+    // 1920px 宽的屏幕上，字体大小设置成 100px，其他尺寸按比例……
+    root.style.fontSize = root.clientWidth/1920 * 100
+  }
+  setRootFontSize()
+
+  // 屏幕大小改变时，重新设置根元素字体大小，如果确定屏幕大小不变，或者不屑于处理屏幕变化，可以不写
+  window.addEventListener('resize', setRootFontSize)
+}
+initResponsize()
+</script>
