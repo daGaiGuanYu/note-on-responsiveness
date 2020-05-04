@@ -11,11 +11,11 @@
 
 本文记录码者开发中使用过的几种**自适应思路**供同仁参考、讨论，以及批评。
 
-# 最简单的方法（固定内容区宽度）
+# 最简单的方案（固定内容区宽度）
 最简单的方法，就是**给网页的内容区，设置一个宽度**。比如 900px，然后内容区居中、两边留白。因为大部分电脑显示器的宽度都超过 900px，所以，不同的显示器的差异，仅仅在于两边“留白”的大小。  
 虽然很简单，但是确实效果不错。码者比较推荐这种方法，但可能是因为简单，很多人不屑于使用这种方法。
 
-# 同比例缩放（rem）
+# 等比例缩放（rem）
 这种方法的思路就是“大屏幕的字大点、小屏幕的字小点”。  
 其实这是一个**看起来很合理**的方法，但是在码者看来是今天所讨论的几个方法中，最 low 的方法。
 
@@ -24,7 +24,7 @@
 但是，1920px 的屏幕有可能是 13 寸的，而 1366px 的屏幕有可能是 15.6 寸的。  
 也就是说，物理尺寸大的屏幕，像素尺寸可能更低。也就会出现这种情况：13 寸显示器上的字体比 15.6 寸的还小。实际体验上，有更多你想不到的 low 点。
 
-但是在某些场景，还是很受用的。所以这里记录**同比例缩放**的一种实现方案——rem 方案。
+但是在某些场景（比如移动端），还是很受用的。所以这里记录**同比例缩放**的一种实现方案——rem 方案。
 
 > 不熟悉 rem 的同仁，可以参考[这个简介](https://blog.csdn.net/csdn372301467/article/details/105910813)
 
@@ -40,10 +40,9 @@
 
 ### demo
 点击[这里](https://dagaiguanyu.github.io/note-on-responsiveness/demo/rem.html)，查看 demo  
-![效果图](https://github.com/daGaiGuanYu/note-on-responsiveness/blob/master/asset/scale.gif)
 打开控制台，或者点[这里](https://github.com/daGaiGuanYu/note-on-responsiveness/blob/master/demo/rem.html)，查看源码
 
-# 最精准（媒体查询，@media）
+# 最精准的方案（媒体查询，@media）
 ### 整体思路
 ```@media```起到的作用是，你可以**给不同尺寸的设备，设置单独、互不影响的 css 属性**。  
 + 比如：屏幕宽度小于 500px 时（手机屏幕），怎样怎样
@@ -53,15 +52,15 @@
 + 宽度在 ……
 
 ### demo
-```css
-@media (max-width: 500px){
-  .target{
-    width: 100px
-  }
-}
-@media (min-width: 500px and max-width: 1000px){
-  .target{
-    width: 50px;
-  }
-}
-```
+点击[这里](https://dagaiguanyu.github.io/note-on-responsiveness/demo/media.html)，查看 demo  
+打开控制台，或者点[这里](https://github.com/daGaiGuanYu/note-on-responsiveness/blob/master/demo/media.html)，查看源码
+
+### 点评
+不同于上一种方案，这种方案，看起来并不是很有用，但实际应用中，它才是响应式领域的霸主。因为，有一个叫“栅格系统”的东西。
+
+### 栅格系统（主流方案）
+没错，栅格系统的基础就是**媒体查询**和**浮动布局**。  
+但是由于栅格方案，比较复杂，于是决定日后单独记录一篇笔记。
+
+# 应该使用哪一种方案？
+遵循国际惯例：**具体情况具体分析**
