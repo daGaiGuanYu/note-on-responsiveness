@@ -1,0 +1,29 @@
+<style>
+.div1{
+  height: 200px;
+  background-color: blue;
+}
+.div2{
+  height: 100px;
+  background-color: red;
+}
+@media (max-width: 500px){
+  .div1{
+    width: 200px;
+  }
+  .div2{
+    width: 100px;
+  }
+}
+@media (min-width: 500px) and (max-width: 700px){
+  .div1{
+    width: 300px;
+  }
+  .div2{
+    width: 50px
+  }
+}
+</style>
+
+<div class="div1"></div>
+<div class="div2"></div>
